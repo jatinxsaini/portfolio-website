@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jatin Saini | Portfolio
 
-## Getting Started
+> Computer Science & Engineering student building software, AI-powered applications, and full-stack web experiences.
 
-First, run the development server:
+## 👨‍💻 About Me
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Hi, I'm **Jatin Saini**, a Computer Science & Engineering student at Chitkara University.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🎓 Pursuing B.E. in Computer Science & Engineering.
+- 💻 Strong foundation in Data Structures & Algorithms, OOP, DBMS, Operating Systems, and Computer Networks.
+- 🤖 Interested in Artificial Intelligence, Machine Learning, and Full-Stack Development.
+- 🧩 Solved 250+ problems on LeetCode.
+- 🚀 Passionate about building practical solutions to real-world problems.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Languages:** Java, Python, C++
 
-## Learn More
+**Frontend:** React, Next.js, Tailwind CSS
 
-To learn more about Next.js, take a look at the following resources:
+**Backend:** Node.js, Express.js
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Databases:** MySQL, PostgreSQL, MongoDB
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Core Concepts:** DSA, OOP, DBMS, Operating Systems, Computer Networks
 
-## Deploy on Vercel
+**Tools:** Git, GitHub, Linux
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**AI/ML:** Python, Machine Learning, LLMs, Retrieval-Augmented Generation (RAG)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Featured Projects
+
+### ARGUS AI
+An AI-powered Near-Earth Object risk assessment and decision-support project.
+
+**Focus:** Machine Learning, NASA data, risk scoring, and data analysis.
+
+### VOYAGE
+A visa consultancy and travel assistance website designed to help users explore visa requirements and application processes.
+
+**Focus:** Full-Stack Development, responsive UI, and visa information management.
+
+### Number Plate Detection System
+A number plate recognition project using Raspberry Pi hardware and OCR to extract vehicle registration numbers.
+
+**Focus:** Raspberry Pi Zero 2 W, Camera Module, Python, and OCR.
+
+## 🎓 Education
+
+**B.E. – Computer Science & Engineering**  
+Chitkara University, Punjab  
+2024 – 2028
+
+## 📫 Connect With Me
+
+- **GitHub:** https://github.com/YOUR_USERNAME
+- **LinkedIn:** https://www.linkedin.com/in/YOUR_LINKEDIN
+- **Portfolio:** Add your deployed website URL here.
+- **Email:** Add your professional email here.
+
+---
+
+⭐ If you find my projects interesting, feel free to explore my repositories!
