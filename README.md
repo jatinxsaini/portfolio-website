@@ -62,13 +62,4 @@ Chitkara University, Punjab
 ---
 
 ⭐ If you find my projects interesting, feel free to explore my repositories!
-=======
-- **GitHub:** https://github.com/YOUR_USERNAME
-- **LinkedIn:** https://www.linkedin.com/in/YOUR_LINKEDIN
-- **Portfolio:**.
-- **Email:** jatinsaini2805@gmail.com
-
----
-
-⭐ If you find my projects interesting, feel free to explore my repositories!
 >>>>>>> 008f84b4d233beb909fbba3016e3f18358719d2b
