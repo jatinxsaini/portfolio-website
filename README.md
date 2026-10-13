@@ -53,10 +53,10 @@ Chitkara University, Punjab
 
 ## 📫 Connect With Me
 
-- **GitHub:** https://github.com/YOUR_USERNAME
-- **LinkedIn:** https://www.linkedin.com/in/YOUR_LINKEDIN
-- **Portfolio:** Add your deployed website URL here.
-- **Email:** Add your professional email here.
+- **GitHub:** https://github.com/jatinxsaini
+- **LinkedIn:** https://linkedin.com/in/jatinxsaini
+- **Twitter / X:** https://x.com/jatinsaini2805
+- **Portfolio Repository:** https://github.com/jatinxsaini/portfolio-website
 
 ---
 

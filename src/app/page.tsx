@@ -10,9 +10,12 @@ import { sectionConfig } from '@/config/sections';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#FFF8E7] py-4 sm:py-6 md:py-8 px-2 sm:px-4 md:px-8">
+    <div className="min-h-screen min-h-[100dvh] w-full bg-[var(--bg-page)] py-2 sm:py-4 md:py-6 lg:py-8 px-1.5 sm:px-3 md:px-5 lg:px-8 xl:px-10 transition-colors duration-200">
       {/* Main Comic Panel Canvas Container */}
-      <main className="max-w-7xl mx-auto comic-canvas rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden min-h-[90vh]">
+      <main
+        id="main-content"
+        className="w-full max-w-[1600px] 2xl:max-w-[1720px] mx-auto comic-canvas rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] overflow-hidden min-h-[calc(100dvh-1rem)] sm:min-h-[calc(100dvh-2rem)] md:min-h-[calc(100dvh-3rem)]"
+      >
         <Navbar />
 
         {/* Hero section */}

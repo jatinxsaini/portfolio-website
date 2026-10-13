@@ -14,25 +14,25 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
   title,
   description,
   className,
-  badgeBg = 'bg-[#FF3B30] text-white',
+  badgeBg = 'bg-[var(--comic-red)] text-white',
 }) => {
   return (
-    <div className={cn('mb-8 sm:mb-12', className)}>
+    <div className={cn('mb-6 sm:mb-10 md:mb-12', className)}>
       {badge && (
         <span
           className={cn(
-            'inline-block px-4 py-1 text-xs font-black tracking-widest uppercase border-[3px] border-[#171717] shadow-[3px_3px_0px_#171717] rounded-md mb-3 transform -rotate-1',
+            'inline-block px-3 sm:px-4 py-1 text-[10px] sm:text-xs font-black tracking-widest uppercase border-2 sm:border-[3px] border-[var(--border-color)] shadow-[2.5px_2.5px_0px_var(--shadow-color)] sm:shadow-[3px_3px_0px_var(--shadow-color)] rounded-md mb-2.5 sm:mb-3 transform -rotate-1',
             badgeBg
           )}
         >
           {badge}
         </span>
       )}
-      <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#171717] uppercase drop-shadow-sm">
+      <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-[var(--text-primary)] uppercase drop-shadow-sm">
         {title}
       </h2>
       {description && (
-        <p className="mt-3 text-base sm:text-lg text-[#171717] max-w-2xl font-bold leading-relaxed">
+        <p className="mt-2.5 sm:mt-3 text-xs sm:text-base md:text-lg text-[var(--text-secondary)] max-w-2xl font-bold leading-relaxed">
           {description}
         </p>
       )}
