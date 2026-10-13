@@ -65,8 +65,8 @@ Chitkara University, Punjab
 =======
 - **GitHub:** https://github.com/YOUR_USERNAME
 - **LinkedIn:** https://www.linkedin.com/in/YOUR_LINKEDIN
-- **Portfolio:** Add your deployed website URL here.
-- **Email:** Add your professional email here.
+- **Portfolio:**.
+- **Email:** jatinsaini2805@gmail.com
 
 ---
 
