@@ -1,39 +1,19 @@
 import { Profile } from '@/types';
 
-/**
- * =====================================================================
- * PROFILE DATA FILE
- * Edit your personal details directly inside the quotation marks below.
- * =====================================================================
- */
-
 export const profileData: Profile = {
   name: 'Jatin Saini',
-
-displayName: 'JATIN SAINI',
-
-role: 'Software Engineer | AI & Full Stack Developer',
-
-shortIntro:
-  'Computer Science & Engineering student building AI-powered applications, full-stack systems, and practical software solutions.',
-
-aboutDescription: [
-  'I am a Computer Science & Engineering student at Chitkara University with a strong foundation in Data Structures & Algorithms, Object-Oriented Programming, DBMS, Operating Systems, and Computer Networks.',
-
-  'My work spans AI engineering and full-stack development, including projects involving Large Language Models, Retrieval-Augmented Generation (RAG), vector search, machine learning, and modern web technologies.',
-
-  'With 250+ LeetCode problems solved, I enjoy tackling complex problems, exploring system design, and building practical applications that combine clean engineering with thoughtful user experiences.'
-],
-
-email: 'jatinsaini2805@example.com',
-
-location: 'Ambala, Haryana, India',
-
-availabilityStatus: 'Open to Internships & Opportunities',
-
-avatarUrl: '/images/profile/MyPhoto.jpg',
-
-resumeUrl: '/resume.pdf',
-
-badgeText: 'AI • ENGINEERING • DEVELOPMENT',
+  displayName: 'Jatin Saini',
+  role: 'Computer Science Student · Software Developer',
+  shortIntro: 'I build thoughtful software across AI, full-stack engineering, and practical problem solving.',
+  aboutDescription: [
+    'I am pursuing a B.E. in Computer Science and Engineering at Chitkara University (2024–2028), where I focus on software engineering, data structures, and building useful products.',
+    'I enjoy working across AI-powered applications and full-stack development. My projects explore machine learning, language models, data-driven systems, modern web interfaces, and backend engineering.',
+    'I have solved 250+ problems on LeetCode and enjoy learning by building, collaborating with technical communities, and turning ideas into working software.'
+  ],
+  email: 'jatinsaini2805@example.com',
+  location: 'Ambala, Haryana, India',
+  availabilityStatus: 'Open to Internships & Opportunities',
+  avatarUrl: '/images/profile/MyPhoto.jpg',
+  resumeUrl: '/resume.pdf',
+  badgeText: 'SOFTWARE · AI · ENGINEERING',
 };

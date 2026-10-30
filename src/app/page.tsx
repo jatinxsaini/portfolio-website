@@ -10,24 +10,15 @@ import { sectionConfig } from '@/config/sections';
 
 export default function Home() {
   return (
-    <div className="min-h-screen min-h-[100dvh] w-full bg-[var(--bg-page)] py-2 sm:py-4 md:py-6 lg:py-8 px-1.5 sm:px-3 md:px-5 lg:px-8 xl:px-10 transition-colors duration-200">
-      {/* Main Comic Panel Canvas Container */}
-      <main
-        id="main-content"
-        className="w-full max-w-[1600px] 2xl:max-w-[1720px] mx-auto comic-canvas rounded-2xl sm:rounded-3xl md:rounded-[2.5rem] overflow-hidden min-h-[calc(100dvh-1rem)] sm:min-h-[calc(100dvh-2rem)] md:min-h-[calc(100dvh-3rem)]"
-      >
+    <div className="min-h-screen min-h-[100dvh] w-full bg-[var(--bg-page)] px-0 py-0 transition-colors duration-200">
+      <main id="main-content" className="w-full max-w-[1440px] mx-auto bg-[var(--bg-canvas)] min-h-[100dvh] overflow-hidden">
         <Navbar />
-
-        {/* Hero section */}
         <Hero />
-
-        {/* Conditional section rendering based on sectionConfig */}
         {sectionConfig.about && <About />}
         {sectionConfig.skills && <Skills />}
         {sectionConfig.projects && <Projects />}
         {sectionConfig.achievements && <Achievements />}
         {sectionConfig.contact && <Contact />}
-
         <Footer />
       </main>
     </div>
