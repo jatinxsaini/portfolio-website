@@ -1,0 +1,49 @@
+{
+  "generatedAt": "2026-10-30T16:04:06Z",
+  "generatedOnPlatform": "win32",
+  "projectType": "webapp",
+  "setup": [
+    {
+      "command": "npm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "timeoutSeconds": 600
+    }
+  ],
+  "devServer": {
+    "command": "npm",
+    "args": [
+      "run",
+      "start"
+    ],
+    "url": "http://localhost:3000/",
+    "readyTimeoutSeconds": 120
+  },
+  "assertions": [
+    {
+      "name": "lint",
+      "kind": "process",
+      "command": "npm",
+      "args": [
+        "run",
+        "lint"
+      ],
+      "verificationMethod": "exit-code",
+      "expected": "0",
+      "timeoutSeconds": 180
+    },
+    {
+      "name": "tests-pass",
+      "kind": "process",
+      "command": "npm",
+      "args": [
+        "test"
+      ],
+      "verificationMethod": "test-results",
+      "expected": "0",
+      "timeoutSeconds": 120
+    }
+  ]
+}

@@ -5,6 +5,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Toaster } from 'sonner';
 import './globals.css';
 import { siteConfig } from '@/config/site';
+import { DotExpand } from '@/components/ui/DotExpand';
+import { ShuffleLoader } from '@/components/ui/ShuffleLoader';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -107,12 +109,14 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased selection:bg-[#FFE500] selection:text-[#171717]">
+        <ShuffleLoader />
         {/* Skip to Main Content Link for Keyboard and Screen Reader Accessibility */}
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2.5 focus:bg-[#FFE500] focus:text-[#171717] focus:border-[3px] focus:border-[var(--border-color)] focus:shadow-[4px_4px_0px_var(--shadow-color)] focus:font-black focus:uppercase focus:text-xs"
         >
           Skip to main content
+          <DotExpand />
         </a>
         {children}
         <Toaster

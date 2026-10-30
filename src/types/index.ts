@@ -34,6 +34,7 @@ export interface Project {
 export interface Skill {
   name: string;
   iconName?: string;
+  iconPath?: string;
   tag?: string;
   highlight?: boolean;
 }

@@ -3,10 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
-import { ExternalLink, X, Sparkles, CheckCircle2, Layers, Code2, Zap, Eye } from 'lucide-react';
+import { X, Sparkles, CheckCircle2, Layers, Code2, Zap, Eye } from 'lucide-react';
 import { Project } from '@/types';
 import { cn } from '@/lib/utils';
 import { Button } from './Button';
+import { DotExpand } from './DotExpand';
 import { SocialIcon } from './SocialIcon';
 
 interface ProjectCardProps {
@@ -187,12 +188,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) 
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-[#FFFFFF] text-[#171717] border-2 border-current shadow-[2px_2px_0px_rgba(0,0,0,0.4)] hover:bg-[var(--comic-yellow)] transition-all"
+                  className="project-icon-link p-2 rounded-lg bg-[#FFFFFF] text-[#171717] border-2 border-current shadow-[2px_2px_0px_rgba(0,0,0,0.4)] hover:bg-[var(--comic-yellow)] transition-all"
                   title="GitHub Repository"
                   aria-label="GitHub Repository"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <SocialIcon name="github" className="w-3.5 h-3.5" />
+                  <DotExpand className="dot-expand--compact" />
                 </a>
               )}
               {project.liveDemoUrl && (
@@ -200,12 +202,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) 
                   href={project.liveDemoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-[var(--comic-yellow)] text-[#171717] border-2 border-current shadow-[2px_2px_0px_rgba(0,0,0,0.4)] hover:bg-[var(--comic-green)] transition-all"
+                  className="project-icon-link p-2 rounded-lg bg-[var(--comic-yellow)] text-[#171717] border-2 border-current shadow-[2px_2px_0px_rgba(0,0,0,0.4)] hover:bg-[var(--comic-green)] transition-all"
                   title="Live Demo"
                   aria-label="Live Demo"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <ExternalLink className="w-3.5 h-3.5 stroke-[3]" />
+                  <DotExpand className="dot-expand--compact" />
                 </a>
               )}
               {!project.githubUrl && !project.liveDemoUrl && (
@@ -378,7 +380,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) 
                     className="text-xs"
                   >
                     <span>VISIT LIVE DEMO</span>
-                    <ExternalLink className="w-4 h-4 stroke-[3]" />
                   </Button>
                 )}
 

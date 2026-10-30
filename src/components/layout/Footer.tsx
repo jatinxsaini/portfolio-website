@@ -6,6 +6,7 @@ import { ArrowUp } from 'lucide-react';
 import { profileData } from '@/data/profile';
 import { socialLinksData } from '@/data/social-links';
 import { siteConfig } from '@/config/site';
+import { DotExpand } from '../ui/DotExpand';
 import { SocialIcon } from '../ui/SocialIcon';
 
 export const Footer: React.FC = () => {
@@ -22,8 +23,9 @@ export const Footer: React.FC = () => {
       <div className="w-full max-w-[1520px] 2xl:max-w-[1640px] mx-auto flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6">
         {/* Left Side Info */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left gap-1">
-          <Link href="#" className="font-black text-lg sm:text-xl uppercase tracking-tight text-[var(--text-primary)]">
+          <Link href="#" className="inline-flex items-center gap-2 font-black text-lg sm:text-xl uppercase tracking-tight text-[var(--text-primary)]">
             {profileData.displayName || profileData.name}
+            <DotExpand />
           </Link>
           <p className="text-[11px] sm:text-xs font-bold text-[var(--text-secondary)] uppercase">
             {siteConfig.copyright}
@@ -39,10 +41,11 @@ export const Footer: React.FC = () => {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 sm:p-2.5 rounded-xl bg-[var(--card-subtle)] border-2 border-[var(--border-color)] shadow-[2px_2px_0px_var(--shadow-color)] hover:bg-[var(--comic-yellow)] hover:text-[#171717] transition-all text-[var(--text-primary)]"
+                className="social-icon-link p-2 sm:p-2.5 rounded-xl bg-[var(--card-subtle)] border-2 border-[var(--border-color)] shadow-[2px_2px_0px_var(--shadow-color)] hover:bg-[var(--comic-yellow)] hover:text-[#171717] transition-all text-[var(--text-primary)]"
                 aria-label={link.label}
               >
                 <SocialIcon name={link.iconName} className="w-4 h-4" />
+                <DotExpand className="dot-expand--compact" />
               </a>
             ))}
           </div>

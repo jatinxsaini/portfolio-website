@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import { Mail, Copy, Check, Send, Sparkles, MessageSquare, User, AtSign, MessageCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { profileData } from '@/data/profile';
@@ -9,11 +9,56 @@ import { socialLinksData } from '@/data/social-links';
 import { SectionHeading } from '../ui/SectionHeading';
 import { SocialIcon } from '../ui/SocialIcon';
 import { Button } from '../ui/Button';
+import { DotExpand } from '../ui/DotExpand';
+
+const FLIP_DURATION = 0.25;
+const FLIP_STAGGER = 0.025;
+
+interface FlipLinkTextProps {
+  text: string;
+  reducedMotion: boolean;
+}
+
+const FlipLinkText: React.FC<FlipLinkTextProps> = ({ text, reducedMotion }) => (
+  <span className="inline-flex" aria-hidden="true">
+    {Array.from(text).map((character, index) => {
+      const visibleCharacter = character === ' ' ? '\u00a0' : character;
+
+      return (
+        <span key={`${character}-${index}`} className="relative inline-block overflow-hidden align-bottom">
+          <motion.span
+            variants={{ initial: { y: 0 }, hovered: { y: '-100%' } }}
+            transition={{
+              duration: reducedMotion ? 0 : FLIP_DURATION,
+              ease: 'easeInOut',
+              delay: reducedMotion ? 0 : FLIP_STAGGER * index,
+            }}
+            className="block"
+          >
+            {visibleCharacter}
+          </motion.span>
+          <motion.span
+            variants={{ initial: { y: '100%' }, hovered: { y: 0 } }}
+            transition={{
+              duration: reducedMotion ? 0 : FLIP_DURATION,
+              ease: 'easeInOut',
+              delay: reducedMotion ? 0 : FLIP_STAGGER * index,
+            }}
+            className="absolute inset-0"
+          >
+            {visibleCharacter}
+          </motion.span>
+        </span>
+      );
+    })}
+  </span>
+);
 
 export const Contact: React.FC = () => {
   const [copied, setCopied] = useState(false);
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const shouldReduceMotion = useReducedMotion() ?? false;
 
   const copyEmail = async () => {
     if (profileData.email) {
@@ -132,6 +177,7 @@ export const Contact: React.FC = () => {
                   >
                     <Send className="w-4 h-4 stroke-[3]" />
                     <span>SEND MAIL</span>
+                    <DotExpand />
                   </a>
                 </div>
               </div>
@@ -237,23 +283,30 @@ export const Contact: React.FC = () => {
 
               <div className="space-y-2.5 sm:space-y-3">
                 {activeSocials.map((social) => (
-                  <a
+                  <motion.a
                     key={social.platform}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={social.label}
+                    initial="initial"
+                    whileHover="hovered"
+                    whileFocus="hovered"
                     className="flex items-center justify-between p-3 sm:p-4 rounded-xl border-2 sm:border-[2.5px] border-[var(--border-color)] bg-[var(--card-subtle)] hover:bg-[var(--comic-yellow)] shadow-[2.5px_2.5px_0px_var(--shadow-color)] sm:shadow-[3px_3px_0px_var(--shadow-color)] transition-all group"
                   >
                     <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
                       <div className="p-1.5 sm:p-2 rounded-lg bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-primary)] group-hover:text-[#171717] flex-shrink-0">
                         <SocialIcon name={social.iconName} className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
-                      <span className="font-black text-xs sm:text-sm uppercase text-[var(--text-primary)] group-hover:text-[#171717] truncate">{social.label}</span>
+                      <span className="font-black text-xs sm:text-sm uppercase text-[var(--text-primary)] group-hover:text-[#171717] truncate">
+                        <FlipLinkText text={social.label} reducedMotion={shouldReduceMotion} />
+                      </span>
                     </div>
-                    <span className="text-[11px] sm:text-xs font-black uppercase text-[var(--comic-blue)] group-hover:text-[#171717] group-hover:translate-x-1 transition-transform flex-shrink-0 ml-2">
-                      VISIT &rarr;
+                    <span className="flex items-center gap-2 text-[11px] sm:text-xs font-black uppercase text-[var(--comic-blue)] group-hover:text-[#171717] flex-shrink-0 ml-2">
+                      VISIT
+                      <DotExpand />
                     </span>
-                  </a>
+                  </motion.a>
                 ))}
               </div>
             </div>

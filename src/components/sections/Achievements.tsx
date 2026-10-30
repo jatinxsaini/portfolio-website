@@ -2,9 +2,10 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Award, ExternalLink, ShieldCheck, Trophy } from 'lucide-react';
+import { Award, ShieldCheck, Trophy } from 'lucide-react';
 import { achievementsData } from '@/data/achievements';
 import { SectionHeading } from '../ui/SectionHeading';
+import { DotExpand } from '../ui/DotExpand';
 import { cn } from '@/lib/utils';
 
 export const Achievements: React.FC = () => {
@@ -81,7 +82,7 @@ export const Achievements: React.FC = () => {
                         className="inline-flex items-center gap-1.5 text-xs font-black uppercase hover:underline text-current"
                       >
                         <span>VIEW CREDENTIAL</span>
-                        <ExternalLink className="w-3.5 h-3.5 stroke-[3]" />
+                        <DotExpand />
                       </a>
                     </div>
                   )}

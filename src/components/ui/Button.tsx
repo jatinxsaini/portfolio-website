@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { DotExpand } from './DotExpand';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
@@ -55,6 +56,7 @@ export const Button: React.FC<ButtonProps> = ({
         className={combinedClasses}
       >
         {children}
+        <DotExpand />
       </a>
     );
   }

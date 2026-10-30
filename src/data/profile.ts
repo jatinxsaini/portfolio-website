@@ -15,10 +15,10 @@ displayName: 'JATIN SAINI',
 role: 'Software Engineer | AI & Full Stack Developer',
 
 shortIntro:
-  'Computer Science & Engineering student building AI-powered applications, full-stack systems, and practical software solutions.',
+  'Computer Science student building AI-powered apps, full-stack systems, and practical software.',
 
 aboutDescription: [
-  'I am a Computer Science & Engineering student at Chitkara University with a strong foundation in Data Structures & Algorithms, Object-Oriented Programming, DBMS, Operating Systems, and Computer Networks.',
+  'CSE student at Chitkara University with a strong foundation in Data Structures & Algorithms, Object-Oriented Programming, DBMS, Operating Systems, and Computer Networks.',
 
   'My work spans AI engineering and full-stack development, including projects involving Large Language Models, Retrieval-Augmented Generation (RAG), vector search, machine learning, and modern web technologies.',
 

@@ -1,0 +1,97 @@
+{
+  "planHash": "2a0c2ca6d22b1d81f5540479c2e178b6e50367a6b7d67252f679a67f836928a4",
+  "phase": "standalone",
+  "recordedAtUtc": "2026-10-30T16:05:25.0151615Z",
+  "retryCount": 1,
+  "resetBaseline": false,
+  "complete": true,
+  "result": {
+    "setupSucceeded": true,
+    "setupDurationMs": 20221,
+    "setupFailureOutput": null,
+    "assertions": [
+      {
+        "name": "lint",
+        "kind": "process",
+        "verificationMethod": "exit-code",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\n\u003E jatin-saini-portfolio@0.1.0 lint\r\n\u003E eslint\r\n\r\n",
+        "durationMs": 13337
+      },
+      {
+        "name": "tests-pass",
+        "kind": "process",
+        "verificationMethod": "test-results",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\n\u003E jatin-saini-portfolio@0.1.0 test\r\n\u003E node --test\r\n\r\n\u2714 Connect Online renders social links with accessible labels and destinations (242.2584ms)\r\n\u2139 tests 1\r\n\u2139 suites 0\r\n\u2139 pass 1\r\n\u2139 fail 0\r\n\u2139 cancelled 0\r\n\u2139 skipped 0\r\n\u2139 todo 0\r\n\u2139 duration_ms 476.5971\r\n",
+        "durationMs": 1822,
+        "testResults": {
+          "testFramework": "unknown",
+          "runnerDetectedFrom": "none",
+          "testsTotal": 0,
+          "testsPassed": 0,
+          "testsFailed": 0,
+          "testsSkipped": 0,
+          "parseFailed": true
+        }
+      }
+    ],
+    "executions": [
+      {
+        "source": "setup[0]",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "run",
+          "build"
+        ],
+        "cwd": "C:\\Users\\Dell\\Desktop\\COLLEGE\\Projects\\P3\\PORTFOLIO WEBSITE",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "devServer",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "run",
+          "start"
+        ],
+        "cwd": "C:\\Users\\Dell\\Desktop\\COLLEGE\\Projects\\P3\\PORTFOLIO WEBSITE",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "lint",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "run",
+          "lint"
+        ],
+        "cwd": "C:\\Users\\Dell\\Desktop\\COLLEGE\\Projects\\P3\\PORTFOLIO WEBSITE",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "tests-pass",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "test"
+        ],
+        "cwd": "C:\\Users\\Dell\\Desktop\\COLLEGE\\Projects\\P3\\PORTFOLIO WEBSITE",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      }
+    ]
+  }
+}
