@@ -53,7 +53,6 @@ Chitkara University, Punjab
 
 ## 📫 Connect With Me
 
-<<<<<<< HEAD
 - **GitHub:** https://github.com/jatinxsaini
 - **LinkedIn:** https://linkedin.com/in/jatinxsaini
 - **Twitter / X:** https://x.com/jatinsaini2805
@@ -62,13 +61,3 @@ Chitkara University, Punjab
 ---
 
 ⭐ If you find my projects interesting, feel free to explore my repositories!
-=======
-- **GitHub:** https://github.com/YOUR_USERNAME
-- **LinkedIn:** https://www.linkedin.com/in/YOUR_LINKEDIN
-- **Portfolio:** Add your deployed website URL here.
-- **Email:** Add your professional email here.
-
----
-
-⭐ If you find my projects interesting, feel free to explore my repositories!
->>>>>>> 008f84b4d233beb909fbba3016e3f18358719d2b
