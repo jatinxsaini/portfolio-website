@@ -2,14 +2,13 @@
 
 import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { Mail, Copy, Check, Send, Sparkles, MessageSquare, User, AtSign, MessageCircle } from 'lucide-react';
+import { Mail, Copy, Check, Send, Sparkles, MessageSquare, User, AtSign, MessageCircle, ArrowRight } from 'lucide-react';
 import { toast } from 'sonner';
 import { profileData } from '@/data/profile';
 import { socialLinksData } from '@/data/social-links';
 import { SectionHeading } from '../ui/SectionHeading';
 import { SocialIcon } from '../ui/SocialIcon';
 import { Button } from '../ui/Button';
-import { DotExpand } from '../ui/DotExpand';
 
 const FLIP_DURATION = 0.25;
 const FLIP_STAGGER = 0.025;
@@ -108,7 +107,7 @@ export const Contact: React.FC = () => {
     }, 600);
   };
 
-  const activeSocials = socialLinksData.filter((link) => link.url);
+  const activeSocials = socialLinksData.filter((link) => link.url && link.platform !== 'email');
 
   return (
     <section id="contact" className="py-10 sm:py-20 px-3 sm:px-6 lg:px-8 xl:px-10">
@@ -154,9 +153,12 @@ export const Contact: React.FC = () => {
                 </div>
 
                 <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
-                  <button
+                  <Button
                     onClick={copyEmail}
-                    className="flex-1 md:flex-none px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-[#171717] text-white font-black text-xs uppercase flex items-center justify-center gap-1.5 cursor-pointer border-2 border-[var(--border-color)] shadow-[2px_2px_0px_var(--shadow-color)] hover:bg-[var(--comic-blue)] transition-colors min-h-[40px]"
+                    size="sm"
+                    variant="secondary"
+                    arrow="none"
+                    className="contact-email-action flex-1 md:flex-none"
                   >
                     {copied ? (
                       <>
@@ -169,16 +171,17 @@ export const Contact: React.FC = () => {
                         <span>COPY EMAIL</span>
                       </>
                     )}
-                  </button>
+                  </Button>
 
-                  <a
+                  <Button
                     href={`mailto:${profileData.email}`}
-                    className="flex-1 md:flex-none px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-[var(--comic-green)] text-[#171717] font-black text-xs uppercase flex items-center justify-center gap-1.5 cursor-pointer border-2 border-[var(--border-color)] shadow-[2px_2px_0px_var(--shadow-color)] hover:bg-[var(--comic-yellow)] transition-colors min-h-[40px]"
+                    size="sm"
+                    variant="secondary"
+                    className="contact-email-action flex-1 md:flex-none"
                   >
                     <Send className="w-4 h-4 stroke-[3]" />
                     <span>SEND MAIL</span>
-                    <DotExpand />
-                  </a>
+                  </Button>
                 </div>
               </div>
 
@@ -292,30 +295,22 @@ export const Contact: React.FC = () => {
                     initial="initial"
                     whileHover="hovered"
                     whileFocus="hovered"
-                    className="flex items-center justify-between p-3 sm:p-4 rounded-xl border-2 sm:border-[2.5px] border-[var(--border-color)] bg-[var(--card-subtle)] hover:bg-[var(--comic-yellow)] shadow-[2.5px_2.5px_0px_var(--shadow-color)] sm:shadow-[3px_3px_0px_var(--shadow-color)] transition-all group"
+                    className="flow-button contact-social-link"
                   >
-                    <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                      <div className="p-1.5 sm:p-2 rounded-lg bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-primary)] group-hover:text-[#171717] flex-shrink-0">
+                    <span className="flow-button__label contact-social-link__label">
+                      <span className="p-1.5 sm:p-2 rounded-lg bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-primary)] flex-shrink-0">
                         <SocialIcon name={social.iconName} className="w-4 h-4 sm:w-5 sm:h-5" />
-                      </div>
-                      <span className="font-black text-xs sm:text-sm uppercase text-[var(--text-primary)] group-hover:text-[#171717] truncate">
+                      </span>
+                      <span className="font-black text-xs sm:text-sm uppercase text-[var(--text-primary)] truncate">
                         <FlipLinkText text={social.label} reducedMotion={shouldReduceMotion} />
                       </span>
-                    </div>
-                    <span className="flex items-center gap-2 text-[11px] sm:text-xs font-black uppercase text-[var(--comic-blue)] group-hover:text-[#171717] flex-shrink-0 ml-2">
-                      VISIT
-                      <DotExpand />
                     </span>
+                    <span className="contact-social-link__visit">VISIT</span>
+                    <ArrowRight className="flow-button__arrow" aria-hidden="true" />
                   </motion.a>
                 ))}
               </div>
             </div>
-
-            {profileData.location && (
-              <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t-2 sm:border-t-3 border-[var(--border-color)] text-[10px] sm:text-xs font-black uppercase text-[var(--text-secondary)]">
-                LOCATION: <span className="underline underline-offset-4 text-[var(--text-primary)]">{profileData.location}</span>
-              </div>
-            )}
           </motion.div>
 
         </div>

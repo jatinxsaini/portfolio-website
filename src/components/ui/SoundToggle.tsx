@@ -4,6 +4,7 @@ import React, { useSyncExternalStore, useState } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 import { retroAudio } from '@/lib/audio';
 import { toast } from 'sonner';
+import { Button } from './Button';
 
 interface SoundToggleProps {
   className?: string;
@@ -42,14 +43,16 @@ export const SoundToggle: React.FC<SoundToggleProps> = ({ className = '' }) => {
   }
 
   return (
-    <button
+    <Button
       type="button"
       onClick={handleToggle}
       aria-label={enabled ? 'Mute 8-bit Sound FX' : 'Enable 8-bit Sound FX'}
+      aria-pressed={enabled}
       title={enabled ? 'Mute 8-bit Sound FX' : 'Enable 8-bit Sound FX'}
-      className={`inline-flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg border-2 border-[var(--border-color)] bg-[var(--card-bg)] text-[var(--text-primary)] shadow-[2px_2px_0px_var(--shadow-color)] hover:bg-[var(--pixel-gold)] hover:text-[var(--pixel-dark)] active:translate-y-0.5 active:shadow-none transition-all cursor-pointer font-arcade text-[10px] min-h-[38px] ${
-        enabled ? 'bg-[var(--pixel-gold)] text-[var(--pixel-dark)]' : ''
-      } ${className}`}
+      size="sm"
+      variant="secondary"
+      arrow="none"
+      className={`sound-toggle-flow ${enabled ? 'sound-toggle-flow--enabled' : ''} ${className}`}
     >
       {enabled ? (
         <>
@@ -62,6 +65,6 @@ export const SoundToggle: React.FC<SoundToggleProps> = ({ className = '' }) => {
           <span className="hidden sm:inline opacity-70">SFX</span>
         </>
       )}
-    </button>
+    </Button>
   );
 };

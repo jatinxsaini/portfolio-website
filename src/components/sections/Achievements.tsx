@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 import { Award, ShieldCheck, Trophy } from 'lucide-react';
 import { achievementsData } from '@/data/achievements';
 import { SectionHeading } from '../ui/SectionHeading';
-import { DotExpand } from '../ui/DotExpand';
+import { Button } from '../ui/Button';
 import { cn } from '@/lib/utils';
 
 export const Achievements: React.FC = () => {
@@ -75,15 +75,9 @@ export const Achievements: React.FC = () => {
 
                   {item.url && (
                     <div className="pt-3.5 sm:pt-4 border-t-2 border-current">
-                      <a
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-black uppercase hover:underline text-current"
-                      >
-                        <span>VIEW CREDENTIAL</span>
-                        <DotExpand />
-                      </a>
+                      <Button href={item.url} external size="sm" variant="secondary">
+                        VIEW CREDENTIAL
+                      </Button>
                     </div>
                   )}
                 </motion.div>

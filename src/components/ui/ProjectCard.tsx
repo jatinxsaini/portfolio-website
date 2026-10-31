@@ -7,7 +7,6 @@ import { X, Sparkles, CheckCircle2, Layers, Code2, Zap, Eye } from 'lucide-react
 import { Project } from '@/types';
 import { cn } from '@/lib/utils';
 import { Button } from './Button';
-import { DotExpand } from './DotExpand';
 import { SocialIcon } from './SocialIcon';
 
 interface ProjectCardProps {
@@ -174,41 +173,47 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) 
 
           {/* Action Footer: Direct Links + Case Study Modal Trigger */}
           <div className="flex items-center justify-between pt-3.5 border-t-2 sm:border-t-3 border-current gap-2">
-            <button
+            <Button
               onClick={() => setIsModalOpen(true)}
-              className="flex items-center gap-1.5 text-xs font-black uppercase tracking-wider underline underline-offset-4 hover:opacity-80 cursor-pointer text-current"
+              size="sm"
+              variant="ghost"
+              className="case-study-trigger"
             >
               <Eye className="w-4 h-4 stroke-[3]" />
               <span>Read Case Study</span>
-            </button>
+            </Button>
 
             <div className="flex items-center gap-2">
               {project.githubUrl && (
-                <a
+                <Button
                   href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-icon-link p-2 rounded-lg bg-[#FFFFFF] text-[#171717] border-2 border-current shadow-[2px_2px_0px_rgba(0,0,0,0.4)] hover:bg-[var(--comic-yellow)] transition-all"
-                  title="GitHub Repository"
+                  external
+                  size="sm"
+                  variant="secondary"
+                  arrow="none"
                   aria-label="GitHub Repository"
-                  onClick={(e) => e.stopPropagation()}
+                  title="GitHub Repository"
+                  className="project-destination-button"
+                  onClick={(e: React.MouseEvent<HTMLAnchorElement>) => e.stopPropagation()}
                 >
                   <SocialIcon name="github" className="w-3.5 h-3.5" />
-                  <DotExpand className="dot-expand--compact" />
-                </a>
+                  <span>GITHUB</span>
+                </Button>
               )}
               {project.liveDemoUrl && (
-                <a
+                <Button
                   href={project.liveDemoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-icon-link p-2 rounded-lg bg-[var(--comic-yellow)] text-[#171717] border-2 border-current shadow-[2px_2px_0px_rgba(0,0,0,0.4)] hover:bg-[var(--comic-green)] transition-all"
-                  title="Live Demo"
+                  external
+                  size="sm"
+                  variant="primary"
+                  arrow="none"
                   aria-label="Live Demo"
-                  onClick={(e) => e.stopPropagation()}
+                  title="Live Demo"
+                  className="project-destination-button"
+                  onClick={(e: React.MouseEvent<HTMLAnchorElement>) => e.stopPropagation()}
                 >
-                  <DotExpand className="dot-expand--compact" />
-                </a>
+                  LIVE DEMO
+                </Button>
               )}
               {!project.githubUrl && !project.liveDemoUrl && (
                 <span
@@ -248,13 +253,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) 
               className="relative w-full max-w-3xl bg-[var(--bg-canvas)] text-[var(--text-primary)] rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-[8px_8px_0px_var(--shadow-color)] sm:shadow-[12px_12px_0px_var(--shadow-color)] border-3 sm:border-[4px] border-[var(--border-color)] z-10 my-4 sm:my-8 max-h-[90vh] overflow-y-auto"
             >
               {/* Close Button */}
-              <button
+              <Button
+                type="button"
                 onClick={() => setIsModalOpen(false)}
-                className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 sm:p-2.5 rounded-xl bg-[var(--comic-red)] text-white border-2 border-[var(--border-color)] shadow-[2.5px_2.5px_0px_var(--shadow-color)] hover:opacity-90 transition-opacity cursor-pointer"
+                size="sm"
+                variant="secondary"
+                arrow="none"
+                className="project-modal-close"
                 aria-label="Close modal"
               >
-                <X className="w-5 h-5 stroke-[3]" />
-              </button>
+                <X className="w-5 h-5" />
+              </Button>
 
               {/* Header Badges */}
               <div className="flex items-center gap-2 mb-3 sm:mb-4 flex-wrap pr-12">
@@ -407,6 +416,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) 
                   onClick={() => setIsModalOpen(false)}
                   size="md"
                   variant="outline"
+                  arrow="none"
                   className="ml-auto text-xs"
                 >
                   CLOSE

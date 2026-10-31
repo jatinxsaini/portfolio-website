@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { Menu, X } from 'lucide-react';
+import { ArrowRight, Menu, X } from 'lucide-react';
 import { profileData } from '@/data/profile';
 import { sectionConfig } from '@/config/sections';
-import { DotExpand } from '../ui/DotExpand';
 import { ThemeToggle } from '../ui/ThemeToggle';
+import { Button } from '../ui/Button';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -38,14 +38,13 @@ export const Navbar: React.FC = () => {
       <div className="site-header-inner">
         <a className="site-brand" href="#top" aria-label={`${profileData.name} — home`}>
           <span className="site-brand-mark">{initials}</span>
-          <DotExpand className="dot-expand--compact" />
         </a>
 
         <nav className="desktop-nav" aria-label="Main navigation">
           {navItems.map((item) => (
             <a key={item.label} href={item.href}>
               {item.label}
-              <DotExpand />
+              <ArrowRight className="nav-flow-arrow" aria-hidden="true" />
             </a>
           ))}
         </nav>
@@ -53,21 +52,29 @@ export const Navbar: React.FC = () => {
         <div className="header-actions">
           <ThemeToggle className="theme-toggle" />
           {profileData.resumeUrl && (
-            <a className="resume-link" href={profileData.resumeUrl} download>
+            <Button
+              href={profileData.resumeUrl}
+              download
+              size="sm"
+              variant="secondary"
+              className="nav-resume-button"
+            >
               Résumé PDF
-              <DotExpand />
-            </a>
+            </Button>
           )}
-          <button
+          <Button
             type="button"
             className="mobile-menu-toggle"
+            size="sm"
+            variant="secondary"
+            arrow="none"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-navigation"
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
             {mobileMenuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -83,16 +90,28 @@ export const Navbar: React.FC = () => {
             className="mobile-nav"
           >
             {navItems.map((item) => (
-              <a key={item.label} href={item.href} onClick={() => setMobileMenuOpen(false)}>
+              <Button
+                className="mobile-nav-flow-link"
+                key={item.label}
+                href={item.href}
+                size="md"
+                variant="secondary"
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 {item.label}
-                <DotExpand />
-              </a>
+              </Button>
             ))}
             {profileData.resumeUrl && (
-              <a href={profileData.resumeUrl} download onClick={() => setMobileMenuOpen(false)}>
+              <Button
+                href={profileData.resumeUrl}
+                download
+                size="md"
+                variant="secondary"
+                className="mobile-nav-resume"
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 Résumé PDF
-                <DotExpand />
-              </a>
+              </Button>
             )}
           </motion.nav>
         )}

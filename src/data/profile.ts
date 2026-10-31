@@ -25,9 +25,7 @@ aboutDescription: [
   'With 250+ LeetCode problems solved, I enjoy tackling complex problems, exploring system design, and building practical applications that combine clean engineering with thoughtful user experiences.'
 ],
 
-email: 'jatinsaini2805@example.com',
-
-location: 'Ambala, Haryana, India',
+email: 'jatinsaini2805@google.com',
 
 availabilityStatus: 'Open to Internships & Opportunities',
 

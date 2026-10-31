@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { MapPin } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { profileData } from '@/data/profile';
-import { DotExpand } from '../ui/DotExpand';
+import { Button } from '../ui/Button';
 
 export const Hero: React.FC = () => {
   const [firstName, ...remainingName] = profileData.name.split(' ');
@@ -20,8 +20,8 @@ export const Hero: React.FC = () => {
           className="hero-copy"
         >
           <p className="hero-eyebrow">
-            <MapPin aria-hidden="true" />
-            {profileData.location}
+            <Sparkles aria-hidden="true" />
+            {profileData.badgeText}
             <span className="hero-eyebrow-rule" />
           </p>
 
@@ -33,15 +33,19 @@ export const Hero: React.FC = () => {
           <p className="hero-description">{profileData.shortIntro}</p>
 
           <div className="hero-actions">
-            <a className="hero-primary-link" href="#projects">
+            <Button href="#projects" size="lg" className="hero-flow-button">
               Explore my work
-              <DotExpand />
-            </a>
+            </Button>
             {profileData.resumeUrl && (
-              <a className="hero-secondary-link" href={profileData.resumeUrl} download>
+              <Button
+                href={profileData.resumeUrl}
+                download
+                size="md"
+                variant="secondary"
+                className="hero-resume-button"
+              >
                 Résumé PDF
-                <DotExpand />
-              </a>
+              </Button>
             )}
           </div>
         </motion.div>

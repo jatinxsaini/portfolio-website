@@ -6,6 +6,7 @@ import { toast } from 'sonner';
 import { profileData } from '@/data/profile';
 import { skillsData } from '@/data/skills';
 import { projectsData } from '@/data/projects';
+import { Button } from './Button';
 
 const quotes = [
   '"First, solve the problem. Then, write the code." — John Johnson',
@@ -71,7 +72,7 @@ export const TerminalWidget: React.FC = () => {
         break;
       case 'contact':
       case 'email':
-        response = `✉️ Email: ${profileData.email} | Location: ${profileData.location}`;
+        response = `✉️ Email: ${profileData.email}`;
         toast.success('✉️ CONTACT INFO LOADED!');
         break;
       case 'github':
@@ -166,15 +167,18 @@ export const TerminalWidget: React.FC = () => {
       {/* Shortcut Command Chips */}
       <div className="flex items-center gap-1 sm:gap-1.5 flex-wrap mb-2.5 sm:mb-3 pt-2 border-t border-white/10">
         {['help', 'bio', 'skills', 'projects', 'github', 'quote', 'matrix'].map((chip) => (
-          <button
+          <Button
             key={chip}
             type="button"
             onClick={() => handleCommand(chip)}
             aria-label={`Run command ${chip}`}
-            className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-[11px] font-mono font-black uppercase rounded-md bg-white/10 hover:bg-[#FFE500] hover:text-[#171717] text-white transition-colors border border-white/20 cursor-pointer"
+            size="sm"
+            variant="ghost"
+            arrow="none"
+            className="terminal-command-chip"
           >
             ${chip}
-          </button>
+          </Button>
         ))}
       </div>
 
@@ -202,13 +206,16 @@ export const TerminalWidget: React.FC = () => {
           spellCheck={false}
           className="flex-1 min-w-0 bg-transparent font-mono text-xs sm:text-sm text-white placeholder-zinc-400 focus:outline-none"
         />
-        <button
+        <Button
           type="submit"
           aria-label="Execute command"
-          className="p-1 sm:p-1.5 rounded bg-[var(--comic-yellow)] text-[#171717] border border-[#171717] font-bold cursor-pointer hover:bg-[var(--comic-green)] transition-colors flex-shrink-0"
+          size="sm"
+          variant="primary"
+          arrow="none"
+          className="terminal-submit-button"
         >
-          <CornerDownLeft className="w-3.5 h-3.5 stroke-[3]" aria-hidden="true" />
-        </button>
+          <CornerDownLeft className="w-4 h-4" aria-hidden="true" />
+        </Button>
       </form>
     </div>
   );

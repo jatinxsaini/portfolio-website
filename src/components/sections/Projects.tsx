@@ -6,6 +6,7 @@ import { FolderGit2, PlusCircle, Filter, Search, Sparkles } from 'lucide-react';
 import { projectsData } from '@/data/projects';
 import { SectionHeading } from '../ui/SectionHeading';
 import { ProjectCard } from '../ui/ProjectCard';
+import { Button } from '../ui/Button';
 
 export const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
@@ -51,17 +52,17 @@ export const Projects: React.FC = () => {
                   <span>FILTER:</span>
                 </div>
                 {categories.map((cat) => (
-                  <button
+                  <Button
                     key={cat as string}
                     onClick={() => setSelectedCategory(cat as string)}
-                    className={`px-3 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-black uppercase tracking-wider rounded-xl border-2 border-[var(--border-color)] transition-all cursor-pointer ${
-                      selectedCategory === cat
-                        ? 'bg-[var(--comic-yellow)] text-[#171717] shadow-[2.5px_2.5px_0px_var(--shadow-color)] -translate-y-0.5'
-                        : 'bg-[var(--card-subtle)] text-[var(--text-primary)] shadow-[1.5px_1.5px_0px_var(--shadow-color)] hover:bg-[var(--comic-yellow)] hover:text-[#171717]'
-                    }`}
+                    aria-pressed={selectedCategory === cat}
+                    size="sm"
+                    variant={selectedCategory === cat ? 'primary' : 'secondary'}
+                    arrow="none"
+                    className="project-filter-button"
                   >
                     {cat}
-                  </button>
+                  </Button>
                 ))}
               </div>
 
@@ -114,15 +115,17 @@ export const Projects: React.FC = () => {
                 <p className="text-xs sm:text-sm font-black uppercase text-[var(--text-primary)]">
                   NO PROJECTS FOUND MATCHING &quot;{searchQuery}&quot;.
                 </p>
-                <button
+                <Button
+                  size="sm"
+                  variant="secondary"
                   onClick={() => {
                     setSearchQuery('');
                     setSelectedCategory('ALL');
                   }}
-                  className="mt-3 text-xs font-black uppercase underline text-[var(--comic-blue)] cursor-pointer"
+                  className="mt-3"
                 >
                   Clear search filters
-                </button>
+                </Button>
               </div>
             )}
           </div>

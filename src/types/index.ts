@@ -7,7 +7,6 @@ export interface Profile {
   shortIntro: string;
   aboutDescription: string[];
   email: string;
-  location: string;
   availabilityStatus: string;
   avatarUrl: string;
   resumeUrl: string;

@@ -1,21 +1,12 @@
 'use client';
 
 import React, { useSyncExternalStore } from 'react';
-import { Sun, Moon } from 'lucide-react';
 
 interface ThemeToggleProps {
   className?: string;
 }
 
-const emptySubscribe = () => () => {};
-
 export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '' }) => {
-  const isMounted = useSyncExternalStore(
-    emptySubscribe,
-    () => true,
-    () => false
-  );
-
   const isDark = useSyncExternalStore(
     (callback) => {
       if (typeof window === 'undefined') return () => {};
@@ -29,21 +20,13 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '' }) => {
 
   const toggleTheme = () => {
     if (typeof document === 'undefined') return;
-    const isCurrentlyDark = document.documentElement.classList.contains('dark');
-    if (isCurrentlyDark) {
-      document.documentElement.classList.remove('dark');
-      try {
-        localStorage.setItem('portfolio-theme', 'light');
-      } catch {
-        // Ignore storage errors in private browsing
-      }
-    } else {
-      document.documentElement.classList.add('dark');
-      try {
-        localStorage.setItem('portfolio-theme', 'dark');
-      } catch {
-        // Ignore storage errors
-      }
+    const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+    document.documentElement.classList.toggle('dark', nextTheme === 'dark');
+
+    try {
+      localStorage.setItem('portfolio-theme', nextTheme);
+    } catch {
+      // The visual theme still works when storage is unavailable.
     }
   };
 
@@ -52,18 +35,30 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '' }) => {
       type="button"
       onClick={toggleTheme}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-pressed={isDark}
       title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      className={`inline-flex items-center justify-center p-2 rounded-xl border-2 border-[var(--border-color)] bg-[var(--comic-yellow)] text-[#171717] shadow-[2px_2px_0px_var(--shadow-color)] hover:-translate-y-0.5 active:translate-y-0.5 transition-all cursor-pointer select-none focus:outline-none focus:ring-2 focus:ring-[var(--comic-yellow)] min-w-[38px] min-h-[38px] ${className}`}
+      className={`sky-theme-toggle ${className}`}
     >
-      {isMounted ? (
-        isDark ? (
-          <Sun className="w-4 h-4 stroke-[2.5]" aria-hidden="true" />
-        ) : (
-          <Moon className="w-4 h-4 stroke-[2.5]" aria-hidden="true" />
-        )
-      ) : (
-        <span className="w-4 h-4 block" aria-hidden="true" />
-      )}
+      <span className="sky-theme-toggle__track" aria-hidden="true">
+        <span className="sky-theme-toggle__clouds" />
+        <span className="sky-theme-toggle__stars">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 40" fill="none">
+            <path
+              fill="currentColor"
+              d="m12 4 2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5Zm27 10 1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5 1.5-4Zm25-9 1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5 1.5-4ZM23 29l1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5 1.5-3Z"
+            />
+          </svg>
+        </span>
+        <span className="sky-theme-toggle__orb">
+          <span className="sky-theme-toggle__sun-moon">
+            <span className="sky-theme-toggle__moon">
+              <span className="sky-theme-toggle__spot" />
+              <span className="sky-theme-toggle__spot" />
+              <span className="sky-theme-toggle__spot" />
+            </span>
+          </span>
+        </span>
+      </span>
     </button>
   );
 };
