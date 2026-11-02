@@ -61,3 +61,9 @@ Chitkara University, Punjab
 ---
 
 ⭐ If you find my projects interesting, feel free to explore my repositories!
+
+## Deploy to Vercel
+
+Import this repository into Vercel and keep the project root as the Root Directory. Vercel will detect Next.js and use the existing `npm run build` command; no custom `vercel.json` or environment variables are required.
+
+The project requires Node.js 20.9 or newer. Before attaching a production domain, make sure the canonical URL in `src/config/site.ts` matches that domain.

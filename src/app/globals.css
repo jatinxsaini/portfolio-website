@@ -545,6 +545,322 @@
   padding: 0;
 }
 
+.resume-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 28px clamp(20px, 7.5vw, 100px) 48px;
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+.resume-page__inner {
+  width: min(100%, 1120px);
+  margin-inline: auto;
+}
+
+.resume-page__header,
+.resume-page__navigation,
+.resume-page__socials {
+  display: flex;
+  align-items: center;
+}
+
+.resume-page__header {
+  min-height: 34px;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.resume-page__brand {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.resume-page__navigation {
+  gap: clamp(16px, 3vw, 34px);
+}
+
+.resume-page__home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.resume-page__home-link svg {
+  width: 15px;
+  height: 15px;
+}
+
+.resume-page__socials {
+  gap: 13px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resume-page__socials a {
+  display: grid;
+  width: 22px;
+  height: 28px;
+  place-items: center;
+  color: var(--text-secondary);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.resume-page__socials a:hover {
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.resume-page__socials svg {
+  width: 17px;
+  height: 17px;
+}
+
+.resume-page__brand:focus-visible,
+.resume-page__home-link:focus-visible,
+.resume-page__socials a:focus-visible {
+  border-radius: 3px;
+  outline: 2px solid var(--text-primary);
+  outline-offset: 4px;
+}
+
+.resume-page__content {
+  margin-top: clamp(42px, 6vw, 72px);
+}
+
+.resume-page__content h1 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: clamp(2.35rem, 5vw, 3.2rem);
+  font-weight: 950;
+  letter-spacing: -0.075em;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.resume-page__role {
+  display: table;
+  margin: 9px 0 35px;
+  border-radius: 4px;
+  background: #d92c32;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.resume-viewer {
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--text-primary) 12%, transparent);
+  border-radius: 12px;
+  background: var(--card-bg);
+  box-shadow: 0 12px 32px rgba(24, 24, 23, 0.08);
+}
+
+.resume-viewer__toolbar {
+  display: flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 7px 14px;
+  border-bottom: 1px solid color-mix(in srgb, var(--text-primary) 12%, transparent);
+  background: color-mix(in srgb, var(--card-bg) 92%, var(--card-subtle));
+}
+
+.resume-viewer__filename {
+  overflow: hidden;
+  color: var(--text-secondary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.67rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.resume-viewer__controls {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.resume-viewer__control {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.resume-viewer__control:hover:not(:disabled) {
+  background: var(--card-subtle);
+  color: var(--text-primary);
+}
+
+.resume-viewer__control:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+.resume-viewer__control:focus-visible,
+.resume-viewer__download:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 2px;
+}
+
+.resume-viewer__control svg {
+  width: 15px;
+  height: 15px;
+}
+
+.resume-viewer__zoom {
+  min-width: 40px;
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.resume-viewer__divider {
+  width: 1px;
+  height: 22px;
+  margin-inline: 3px;
+  background: color-mix(in srgb, var(--text-primary) 18%, transparent);
+}
+
+.resume-viewer__download {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  gap: 7px;
+  margin-left: 4px;
+  border-radius: 7px;
+  background: #d92c32;
+  color: #fff;
+  padding: 0 13px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.resume-viewer__download:hover {
+  background: #bc2027;
+  transform: translateY(-1px);
+}
+
+.resume-viewer__download svg {
+  width: 14px;
+  height: 14px;
+}
+
+.resume-viewer__document {
+  display: block;
+  width: 100%;
+  height: min(1050px, max(680px, calc(100dvh - 330px)));
+  border: 0;
+  background: #f0f0f0;
+}
+
+@media (max-width: 640px) {
+  .resume-page {
+    padding: 20px 14px 32px;
+  }
+
+  .resume-page__header {
+    align-items: flex-start;
+  }
+
+  .resume-page__brand {
+    max-width: 120px;
+    font-size: 0.76rem;
+  }
+
+  .resume-page__navigation {
+    gap: 12px;
+  }
+
+  .resume-page__home-link {
+    gap: 4px;
+    font-size: 0.62rem;
+  }
+
+  .resume-page__socials {
+    gap: 8px;
+  }
+
+  .resume-page__socials a {
+    width: 19px;
+  }
+
+  .resume-page__socials svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .resume-page__content {
+    margin-top: 42px;
+  }
+
+  .resume-page__role {
+    margin-bottom: 22px;
+  }
+
+  .resume-viewer {
+    border-radius: 9px;
+  }
+
+  .resume-viewer__toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+    padding: 9px 10px;
+  }
+
+  .resume-viewer__controls {
+    width: 100%;
+    justify-content: flex-end;
+    gap: 3px;
+  }
+
+  .resume-viewer__control {
+    width: 30px;
+    height: 30px;
+  }
+
+  .resume-viewer__zoom {
+    min-width: 35px;
+    font-size: 0.65rem;
+  }
+
+  .resume-viewer__download {
+    min-height: 31px;
+    padding-inline: 9px;
+    font-size: 0.66rem;
+  }
+
+  .resume-viewer__document {
+    height: max(68vh, 560px);
+  }
+}
+
 .project-destination-button {
   min-height: 36px;
   padding: 6px 10px;

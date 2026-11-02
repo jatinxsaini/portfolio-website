@@ -38,13 +38,12 @@ export const Hero: React.FC = () => {
             </Button>
             {profileData.resumeUrl && (
               <Button
-                href={profileData.resumeUrl}
-                download
+                href="/resume"
                 size="md"
                 variant="secondary"
                 className="hero-resume-button"
               >
-                Résumé PDF
+                View résumé
               </Button>
             )}
           </div>

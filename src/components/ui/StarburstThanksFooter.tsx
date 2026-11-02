@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { ArrowUpRight, Mail, Sparkles } from 'lucide-react';
+import Link from 'next/link';
 import type { SocialLink } from '@/types';
 import { Button } from './Button';
 import { SocialTooltip } from './social-media';
@@ -37,10 +38,10 @@ export const StarburstThanksFooter: React.FC<StarburstThanksFooterProps> = ({
     <footer className="starburst-footer">
       <div className="starburst-footer__panel">
         <div className="starburst-footer__topline">
-          <a className="starburst-footer__brand" href="#top">
+          <Link className="starburst-footer__brand" href="/#top">
             {name}
             <ArrowUpRight aria-hidden="true" />
-          </a>
+          </Link>
           <span className="starburst-footer__edition">A LITTLE CORNER OF THE INTERNET</span>
         </div>
 
