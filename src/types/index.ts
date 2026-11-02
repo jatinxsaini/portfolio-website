@@ -62,6 +62,7 @@ export interface SocialLink {
   label: string;
   url: string;
   iconName: string;
+  color?: string;
   showInHeader?: boolean;
   showInFooter?: boolean;
 }

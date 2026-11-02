@@ -2,11 +2,12 @@
 
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { ArrowRight, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { profileData } from '@/data/profile';
 import { sectionConfig } from '@/config/sections';
 import { ThemeToggle } from '../ui/ThemeToggle';
 import { Button } from '../ui/Button';
+import { TubelightNavbar } from '../ui/TubelightNavbar';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -40,14 +41,10 @@ export const Navbar: React.FC = () => {
           <span className="site-brand-mark">{initials}</span>
         </a>
 
-        <nav className="desktop-nav" aria-label="Main navigation">
-          {navItems.map((item) => (
-            <a key={item.label} href={item.href}>
-              {item.label}
-              <ArrowRight className="nav-flow-arrow" aria-hidden="true" />
-            </a>
-          ))}
-        </nav>
+        <TubelightNavbar
+          aria-label="Main navigation"
+          items={navItems.map(({ label, href }) => ({ label, href }))}
+        />
 
         <div className="header-actions">
           <ThemeToggle className="theme-toggle" />

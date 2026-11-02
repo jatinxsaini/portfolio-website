@@ -6,6 +6,7 @@ import { Toaster } from 'sonner';
 import { ArrowRight } from 'lucide-react';
 import './globals.css';
 import { siteConfig } from '@/config/site';
+import DrawingCursor from '@/components/ui/drawing-cursor';
 import { ShuffleLoader } from '@/components/ui/ShuffleLoader';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -118,7 +119,9 @@ export default function RootLayout({
           Skip to main content
           <ArrowRight className="ml-2 inline-block h-4 w-4" aria-hidden="true" />
         </a>
-        {children}
+        <DrawingCursor className="site-drawing-cursor" viewport>
+          {children}
+        </DrawingCursor>
         <Toaster
           position="bottom-right"
           toastOptions={{

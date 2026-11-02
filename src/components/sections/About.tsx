@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { User, Code2, Compass, HeartHandshake } from 'lucide-react';
+import { User, Code2, Compass, HeartHandshake, Sparkles } from 'lucide-react';
 import { profileData } from '@/data/profile';
 import { SectionHeading } from '../ui/SectionHeading';
 
@@ -62,22 +62,25 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="lg:col-span-4 comic-panel bg-[var(--comic-red)] text-white p-4 sm:p-6 md:p-8 flex flex-col justify-between rounded-2xl sm:rounded-3xl border-3 sm:border-[4px] border-[var(--border-color)] shadow-[5px_5px_0px_var(--shadow-color)] sm:shadow-[8px_8px_0px_var(--shadow-color)]"
+            className="lg:col-span-4 comic-panel bg-[var(--card-bg)] text-[var(--text-primary)] p-5 sm:p-7 md:p-8 flex flex-col justify-between rounded-2xl sm:rounded-3xl border-3 sm:border-[4px] border-[var(--border-color)] shadow-[5px_5px_0px_var(--shadow-color)] sm:shadow-[8px_8px_0px_var(--shadow-color)]"
           >
             <div>
-              <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider bg-[#171717] text-white px-2.5 sm:px-3 py-1 rounded-md border border-white/40 inline-block mb-4 sm:mb-6">
-                PHILOSOPHY
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight mb-3 sm:mb-4 text-white">
-                FORM FOLLOWS FUNCTION
+              <div className="flex items-center justify-between gap-4 mb-5 sm:mb-7">
+                <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider bg-[var(--text-primary)] text-[var(--bg-canvas)] px-3 py-1.5 rounded-full inline-block">
+                  Philosophy
+                </span>
+                <Sparkles className="w-5 h-5 text-[var(--comic-yellow)]" aria-hidden="true" />
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-black tracking-tight mb-3 sm:mb-4 text-[var(--text-primary)]">
+                Engineering solutions that matter.
               </h3>
-              <p className="text-xs sm:text-sm font-bold opacity-95 leading-relaxed text-white">
-                Software should be intuitive, highly responsive, and pleasant to use. I build applications with robust backend foundations and crafted user interfaces that deliver seamless interactive experiences.
+              <p className="text-sm sm:text-base font-medium leading-relaxed text-[var(--text-secondary)]">
+                I believe effective software is built on a foundation of thoughtful engineering, architectural clarity, and continuous improvement. My approach combines analytical problem-solving with modern technologies to develop reliable, scalable, and efficient solutions that address real-world challenges.
               </p>
             </div>
 
-            <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t-2 border-white/30 text-[10px] sm:text-xs font-black uppercase tracking-wider text-white">
-              {'// CODE & DESIGN RULES'}
+            <div className="mt-7 sm:mt-9 pt-4 sm:pt-5 border-t border-[var(--border-color)]/20 text-[10px] sm:text-xs font-bold uppercase tracking-[0.14em] text-[var(--text-secondary)]">
+              Think deeply · Build intelligently · Keep innovating <span aria-hidden="true">·</span> 
             </div>
           </motion.div>
         </div>

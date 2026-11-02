@@ -33,14 +33,23 @@ export const Button: React.FC<ButtonProps> = (props) => {
     lg: 'px-6 sm:px-7 py-3 sm:py-3.5 min-h-[54px] text-base gap-3',
   };
 
-  const renderContent = (children: React.ReactNode, arrow: SharedButtonProps['arrow']) => (
+  const renderLabel = (children: React.ReactNode, arrow: SharedButtonProps['arrow']) => (
     <>
-      <span className="flow-button__label">{children}</span>
+      {children}
       {arrow === 'up' ? (
         <ArrowUp className="flow-button__arrow flow-button__arrow--up" aria-hidden="true" />
       ) : arrow === 'right' ? (
         <ArrowRight className="flow-button__arrow" aria-hidden="true" />
       ) : null}
+    </>
+  );
+
+  const renderContent = (children: React.ReactNode, arrow: SharedButtonProps['arrow']) => (
+    <>
+      <span className="flow-button__label">{renderLabel(children, arrow)}</span>
+      <span className="flow-button__hover-content" aria-hidden="true">
+        {renderLabel(children, arrow)}
+      </span>
     </>
   );
 

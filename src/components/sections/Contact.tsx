@@ -1,63 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, useReducedMotion } from 'motion/react';
-import { Mail, Copy, Check, Send, Sparkles, MessageSquare, User, AtSign, MessageCircle, ArrowRight } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Mail, Copy, Check, Send, Sparkles, User, AtSign, MessageCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { profileData } from '@/data/profile';
-import { socialLinksData } from '@/data/social-links';
 import { SectionHeading } from '../ui/SectionHeading';
-import { SocialIcon } from '../ui/SocialIcon';
 import { Button } from '../ui/Button';
-
-const FLIP_DURATION = 0.25;
-const FLIP_STAGGER = 0.025;
-
-interface FlipLinkTextProps {
-  text: string;
-  reducedMotion: boolean;
-}
-
-const FlipLinkText: React.FC<FlipLinkTextProps> = ({ text, reducedMotion }) => (
-  <span className="inline-flex" aria-hidden="true">
-    {Array.from(text).map((character, index) => {
-      const visibleCharacter = character === ' ' ? '\u00a0' : character;
-
-      return (
-        <span key={`${character}-${index}`} className="relative inline-block overflow-hidden align-bottom">
-          <motion.span
-            variants={{ initial: { y: 0 }, hovered: { y: '-100%' } }}
-            transition={{
-              duration: reducedMotion ? 0 : FLIP_DURATION,
-              ease: 'easeInOut',
-              delay: reducedMotion ? 0 : FLIP_STAGGER * index,
-            }}
-            className="block"
-          >
-            {visibleCharacter}
-          </motion.span>
-          <motion.span
-            variants={{ initial: { y: '100%' }, hovered: { y: 0 } }}
-            transition={{
-              duration: reducedMotion ? 0 : FLIP_DURATION,
-              ease: 'easeInOut',
-              delay: reducedMotion ? 0 : FLIP_STAGGER * index,
-            }}
-            className="absolute inset-0"
-          >
-            {visibleCharacter}
-          </motion.span>
-        </span>
-      );
-    })}
-  </span>
-);
 
 export const Contact: React.FC = () => {
   const [copied, setCopied] = useState(false);
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const shouldReduceMotion = useReducedMotion() ?? false;
 
   const copyEmail = async () => {
     if (profileData.email) {
@@ -107,8 +61,6 @@ export const Contact: React.FC = () => {
     }, 600);
   };
 
-  const activeSocials = socialLinksData.filter((link) => link.url && link.platform !== 'email');
-
   return (
     <section id="contact" className="py-10 sm:py-20 px-3 sm:px-6 lg:px-8 xl:px-10">
       <div className="w-full max-w-[1520px] 2xl:max-w-[1640px] mx-auto">
@@ -119,15 +71,14 @@ export const Contact: React.FC = () => {
           badgeBg="bg-[var(--comic-yellow)] text-[#171717]"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-7 md:gap-8 items-stretch">
-          
+        <div className="grid grid-cols-1 gap-5 sm:gap-7 md:gap-8 items-stretch">
           {/* Main Direct Email Panel */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="lg:col-span-7 comic-panel bg-[var(--contact-card-bg)] text-[var(--contact-card-text)] p-4 sm:p-8 md:p-12 flex flex-col justify-between rounded-2xl sm:rounded-3xl border-3 sm:border-[4px] border-[var(--border-color)] shadow-[5px_5px_0px_var(--shadow-color)] sm:shadow-[8px_8px_0px_var(--shadow-color)]"
+            className="comic-panel bg-[var(--contact-card-bg)] text-[var(--contact-card-text)] p-4 sm:p-8 md:p-12 flex flex-col justify-between rounded-2xl sm:rounded-3xl border-3 sm:border-[4px] border-[var(--border-color)] shadow-[5px_5px_0px_var(--shadow-color)] sm:shadow-[8px_8px_0px_var(--shadow-color)]"
           >
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#171717] text-white text-[10px] sm:text-xs font-black uppercase tracking-wider mb-5 sm:mb-6 border-2 border-[var(--border-color)] shadow-[2px_2px_0px_var(--shadow-color)]">
@@ -262,55 +213,6 @@ export const Contact: React.FC = () => {
             <p className="text-[10px] sm:text-xs font-black uppercase text-[var(--contact-card-text)] opacity-90 mt-5 sm:mt-6">
               ⚡ TYPICAL RESPONSE TIME: WITHIN 24 HOURS
             </p>
-          </motion.div>
-
-          {/* Social Profiles Grid Panel */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="lg:col-span-5 comic-panel bg-[var(--card-bg)] text-[var(--text-primary)] p-4 sm:p-8 md:p-12 flex flex-col justify-between rounded-2xl sm:rounded-3xl border-3 sm:border-[4px] border-[var(--border-color)] shadow-[5px_5px_0px_var(--shadow-color)] sm:shadow-[8px_8px_0px_var(--shadow-color)]"
-          >
-            <div>
-              <div className="flex items-center gap-3 mb-5 sm:mb-6">
-                <div className="p-2.5 sm:p-3 rounded-xl bg-[var(--comic-red)] text-white border-2 border-[var(--border-color)] shadow-[2px_2px_0px_var(--shadow-color)] flex-shrink-0">
-                  <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 stroke-[3]" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-black uppercase text-[var(--text-primary)]">Connect Online</h3>
-              </div>
-
-              <p className="text-xs sm:text-sm font-bold text-[var(--text-secondary)] mb-5 sm:mb-6">
-                Find me across code repositories, developer communities, and social networks:
-              </p>
-
-              <div className="space-y-2.5 sm:space-y-3">
-                {activeSocials.map((social) => (
-                  <motion.a
-                    key={social.platform}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    initial="initial"
-                    whileHover="hovered"
-                    whileFocus="hovered"
-                    className="flow-button contact-social-link"
-                  >
-                    <span className="flow-button__label contact-social-link__label">
-                      <span className="p-1.5 sm:p-2 rounded-lg bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-primary)] flex-shrink-0">
-                        <SocialIcon name={social.iconName} className="w-4 h-4 sm:w-5 sm:h-5" />
-                      </span>
-                      <span className="font-black text-xs sm:text-sm uppercase text-[var(--text-primary)] truncate">
-                        <FlipLinkText text={social.label} reducedMotion={shouldReduceMotion} />
-                      </span>
-                    </span>
-                    <span className="contact-social-link__visit">VISIT</span>
-                    <ArrowRight className="flow-button__arrow" aria-hidden="true" />
-                  </motion.a>
-                ))}
-              </div>
-            </div>
           </motion.div>
 
         </div>
